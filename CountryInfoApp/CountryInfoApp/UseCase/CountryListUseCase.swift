@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 class CountryListUseCase {
     private let repository: CountryRepository
@@ -18,4 +18,9 @@ class CountryListUseCase {
     func execute(completion: @escaping (Result<[CountryDataModel], Error>) -> Void) {
         repository.fetchCountryData(completion: completion)
     }
+    
+    func executeFetchImage(with url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        repository.fetchImage(from: url, completion: completion)
+    }
+
 }

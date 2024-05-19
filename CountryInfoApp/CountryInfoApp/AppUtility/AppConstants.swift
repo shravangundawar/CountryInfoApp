@@ -10,7 +10,13 @@ import Foundation
 class AppConstants {
     
     class UIConstants {
-        
+        static let countryFilterTitle = "Filter by Population"
+        static let oneMillion = "< 1M"
+        static let fiveMillion = "< 5M"
+        static let tenMillion = "< 10M"
+        static let twentyMillion = "< 20M"
+        static let clear = "Clear Filter"
+        static let cancel = "Cancel"
     }
     
     class APIConstants {
