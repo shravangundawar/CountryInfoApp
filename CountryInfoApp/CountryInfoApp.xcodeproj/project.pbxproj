@@ -16,6 +16,10 @@
 		08C434F92BFA109200AAAB38 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434F82BFA109200AAAB38 /* StringExtension.swift */; };
 		08C434FE2BFA1A4000AAAB38 /* CountryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434FC2BFA1A4000AAAB38 /* CountryListTableViewCell.swift */; };
 		08C434FF2BFA1A4000AAAB38 /* CountryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08C434FD2BFA1A4000AAAB38 /* CountryListTableViewCell.xib */; };
+		08C435052BFA6A8300AAAB38 /* BluetoothDeviceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C435042BFA6A8300AAAB38 /* BluetoothDeviceRepository.swift */; };
+		08C435072BFA6ABC00AAAB38 /* BluetoothDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C435062BFA6ABC00AAAB38 /* BluetoothDeviceModel.swift */; };
+		08C435092BFA6AFC00AAAB38 /* BluetoothUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C435082BFA6AFC00AAAB38 /* BluetoothUseCase.swift */; };
+		08C4350B2BFA6B2400AAAB38 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C4350A2BFA6B2400AAAB38 /* BluetoothViewModel.swift */; };
 		08FEF6DA2BF8FF400012AB12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FEF6D92BF8FF400012AB12 /* AppDelegate.swift */; };
 		08FEF6DC2BF8FF400012AB12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FEF6DB2BF8FF400012AB12 /* SceneDelegate.swift */; };
 		08FEF6E12BF8FF400012AB12 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 08FEF6E02BF8FF400012AB12 /* Base */; };
@@ -56,6 +60,10 @@
 		08C434F82BFA109200AAAB38 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		08C434FC2BFA1A4000AAAB38 /* CountryListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListTableViewCell.swift; sourceTree = "<group>"; };
 		08C434FD2BFA1A4000AAAB38 /* CountryListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryListTableViewCell.xib; sourceTree = "<group>"; };
+		08C435042BFA6A8300AAAB38 /* BluetoothDeviceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDeviceRepository.swift; sourceTree = "<group>"; };
+		08C435062BFA6ABC00AAAB38 /* BluetoothDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothDeviceModel.swift; sourceTree = "<group>"; };
+		08C435082BFA6AFC00AAAB38 /* BluetoothUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothUseCase.swift; sourceTree = "<group>"; };
+		08C4350A2BFA6B2400AAAB38 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		08FEF6D62BF8FF400012AB12 /* CountryInfoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountryInfoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08FEF6D92BF8FF400012AB12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08FEF6DB2BF8FF400012AB12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				08C434F22BFA00A400AAAB38 /* CountryListUseCase.swift */,
+				08C435082BFA6AFC00AAAB38 /* BluetoothUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -111,6 +120,7 @@
 			children = (
 				08C434EE2BF9FF5200AAAB38 /* CountryDataRepository.swift */,
 				08C434F02BFA000600AAAB38 /* NetworkManager.swift */,
+				08C435042BFA6A8300AAAB38 /* BluetoothDeviceRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -192,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				080DBE992BF908C60094C7C9 /* CountryListViewModel.swift */,
+				08C4350A2BFA6B2400AAAB38 /* BluetoothViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -200,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				080DBE972BF9080A0094C7C9 /* CountryDataModel.swift */,
+				08C435062BFA6ABC00AAAB38 /* BluetoothDeviceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -356,12 +368,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C435092BFA6AFC00AAAB38 /* BluetoothUseCase.swift in Sources */,
 				08C434F12BFA000600AAAB38 /* NetworkManager.swift in Sources */,
 				08FEF6E42BF8FF400012AB12 /* CountryInfoApp.xcdatamodeld in Sources */,
+				08C435072BFA6ABC00AAAB38 /* BluetoothDeviceModel.swift in Sources */,
 				080DBE9A2BF908C60094C7C9 /* CountryListViewModel.swift in Sources */,
 				08C434FE2BFA1A4000AAAB38 /* CountryListTableViewCell.swift in Sources */,
 				08C434F62BFA07D300AAAB38 /* AppConstants.swift in Sources */,
 				08FEF7112BF902170012AB12 /* CountryListViewController.swift in Sources */,
+				08C4350B2BFA6B2400AAAB38 /* BluetoothViewModel.swift in Sources */,
+				08C435052BFA6A8300AAAB38 /* BluetoothDeviceRepository.swift in Sources */,
 				08C434F32BFA00A400AAAB38 /* CountryListUseCase.swift in Sources */,
 				08FEF7142BF903C20012AB12 /* BluetoothViewController.swift in Sources */,
 				08C434EF2BF9FF5200AAAB38 /* CountryDataRepository.swift in Sources */,
@@ -553,11 +569,13 @@
 				DEVELOPMENT_TEAM = LG92TWM92R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CountryInfoApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth permission";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -581,11 +599,13 @@
 				DEVELOPMENT_TEAM = LG92TWM92R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CountryInfoApp/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Allow bluetooth permission";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

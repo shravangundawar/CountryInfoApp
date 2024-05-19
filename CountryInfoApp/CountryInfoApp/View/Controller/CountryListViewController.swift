@@ -167,4 +167,8 @@ extension CountryListViewController: UISearchBarDelegate {
         }
         countryListTableView.reloadData()
     }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+           searchBar.resignFirstResponder()
+       }
 }

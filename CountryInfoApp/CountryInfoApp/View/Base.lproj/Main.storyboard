@@ -112,10 +112,56 @@
                     <view key="view" contentMode="scaleToFill" id="yAO-sf-HC7">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-16-Hva">
+                                <rect key="frame" x="156.66666666666666" y="59" width="80" height="35"/>
+                                <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="KgC-iQ-xxk"/>
+                                    <constraint firstAttribute="height" constant="35" id="s9Y-1n-knR"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Scan"/>
+                                <connections>
+                                    <action selector="scanButtonTapped:" destination="6A5-v8-RUO" eventType="touchUpInside" id="lQm-ij-fPy"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aEM-E7-MQI">
+                                <rect key="frame" x="0.0" y="94" width="393" height="675"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DeviceCell" id="Zyq-SM-dn3">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zyq-SM-dn3" id="43V-Zj-vW8">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6A5-v8-RUO" id="b0d-aq-KE2"/>
+                                    <outlet property="delegate" destination="6A5-v8-RUO" id="3Hs-2B-luC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="L19-gH-Q7E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aEM-E7-MQI" firstAttribute="leading" secondItem="L19-gH-Q7E" secondAttribute="leading" id="5aK-tA-bIh"/>
+                            <constraint firstItem="0Ta-16-Hva" firstAttribute="top" secondItem="L19-gH-Q7E" secondAttribute="top" id="ByT-oJ-XFi"/>
+                            <constraint firstItem="aEM-E7-MQI" firstAttribute="top" secondItem="0Ta-16-Hva" secondAttribute="bottom" id="CmQ-a6-lvm"/>
+                            <constraint firstItem="L19-gH-Q7E" firstAttribute="bottom" secondItem="aEM-E7-MQI" secondAttribute="bottom" id="ZSw-6b-Vhf"/>
+                            <constraint firstItem="L19-gH-Q7E" firstAttribute="trailing" secondItem="aEM-E7-MQI" secondAttribute="trailing" id="nfx-Me-9Cz"/>
+                            <constraint firstItem="0Ta-16-Hva" firstAttribute="centerX" secondItem="yAO-sf-HC7" secondAttribute="centerX" id="qcs-yq-7ym"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Bluetooth Screen" image="bluetooth" id="Tuw-2p-1ME"/>
+                    <connections>
+                        <outlet property="devicesTableView" destination="aEM-E7-MQI" id="fod-wv-6ik"/>
+                        <outlet property="scanButton" destination="0Ta-16-Hva" id="4Xr-ht-Ayd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtI-OC-gKD" sceneMemberID="firstResponder"/>
             </objects>
