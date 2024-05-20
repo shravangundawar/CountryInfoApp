@@ -32,6 +32,9 @@ enum PopulationFilter {
     }
 }
 
+protocol CountryListViewModelDelegate {
+    func networkError()
+}
 
 class CountryListViewModel  {
     
@@ -39,7 +42,7 @@ class CountryListViewModel  {
     var countryListArray: [CountryDataModel] = []
     var errorMessage: String? = nil
     private let countryListUseCase: CountryListUseCase
-    var networkError: ((String) -> Void)?
+    var delegate: CountryListViewModelDelegate?
     
     init(countryListUseCase: CountryListUseCase) {
         self.countryListUseCase = countryListUseCase
@@ -63,7 +66,7 @@ class CountryListViewModel  {
         }
         
         if !NetworkReachability.shared.isNetworkAvailable {
-            networkError?(AppConstants.UIConstants.noInternetMessage)
+            delegate?.networkError()
         }
     }
     

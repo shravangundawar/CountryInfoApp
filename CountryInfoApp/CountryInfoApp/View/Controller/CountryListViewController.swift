@@ -23,7 +23,6 @@ class CountryListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialDependancyInjectionSetup()
-        networkAlertHandling()
         getCountryListData()
         dateTimeSetup()
         tableViewSetup()
@@ -40,6 +39,7 @@ class CountryListViewController: UIViewController {
         let countryDataRepository = CountryDataRepository(apiClient: networkManager)
         let countryListUseCase = CountryListUseCase(repository: countryDataRepository)
         countryListVM = CountryListViewModel(countryListUseCase: countryListUseCase)
+        countryListVM?.delegate = self
     }
     
     func dateTimeSetup() {
@@ -49,18 +49,11 @@ class CountryListViewController: UIViewController {
     func tableViewSetup() {
         countryListTableView.register(UINib(nibName: reuseIdentifier, bundle: Bundle.main), forCellReuseIdentifier: reuseIdentifier)
     }
-    
-    func networkAlertHandling() {
-        countryListVM?.networkError = { [weak self] errorMessage in
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: AppConstants.UIConstants.noInternetTitle, message: errorMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: AppConstants.UIConstants.ok, style: .default))
-                self?.present(alert, animated: true)
-            }
-        }
-    }
-    
+        
     func getCountryListData() {
+        if NetworkReachability.shared.isNetworkAvailable {
+            showLoader()
+        }
         countryListVM?.fetchCountryList { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
@@ -70,8 +63,14 @@ class CountryListViewController: UIViewController {
                     self?.countryListTableView.reloadData()
                 case .failure(let error):
                     debugPrint("Error fetching country data: \(error)")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                        self?.hideLoader()
+                    }
                 }
-                //                self?.hideLoader()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                    self?.hideLoader()
+                }
+                
             }
         }
     }
@@ -115,6 +114,8 @@ class CountryListViewController: UIViewController {
     }
     
     func updateFilterData(filter: PopulationFilter) {
+        countrySearchBar.text = ""
+        countrySearchBar.resignFirstResponder()
         filteredCountries.removeAll()
         filteredCountries = countryListVM?.filterCountries(by: filter) ?? []
         countryListTableView.reloadData()
@@ -178,5 +179,17 @@ extension CountryListViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+}
+
+
+//MARK: Country VM Delegate
+extension CountryListViewController: CountryListViewModelDelegate {
+    func networkError() {
+        DispatchQueue.main.async { [weak self] in
+            let alert = UIAlertController(title: AppConstants.UIConstants.noInternetTitle, message: AppConstants.UIConstants.noInternetMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: AppConstants.UIConstants.ok, style: .default))
+            self?.present(alert, animated: true)
+        }
     }
 }

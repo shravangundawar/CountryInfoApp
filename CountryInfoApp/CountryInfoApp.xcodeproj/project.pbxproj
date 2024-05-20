@@ -10,6 +10,8 @@
 		080DBE982BF9080A0094C7C9 /* CountryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080DBE972BF9080A0094C7C9 /* CountryDataModel.swift */; };
 		080DBE9A2BF908C60094C7C9 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080DBE992BF908C60094C7C9 /* CountryListViewModel.swift */; };
 		081747942BFB9E4000B82CD2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081747932BFB9E4000B82CD2 /* NetworkReachabilityManager.swift */; };
+		081747962BFBA0BE00B82CD2 /* AppActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081747952BFBA0BE00B82CD2 /* AppActivityLoader.swift */; };
+		081747982BFBA0EF00B82CD2 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081747972BFBA0EF00B82CD2 /* ViewControllerExtension.swift */; };
 		08C434EF2BF9FF5200AAAB38 /* CountryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434EE2BF9FF5200AAAB38 /* CountryDataRepository.swift */; };
 		08C434F12BFA000600AAAB38 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434F02BFA000600AAAB38 /* NetworkManager.swift */; };
 		08C434F32BFA00A400AAAB38 /* CountryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434F22BFA00A400AAAB38 /* CountryListUseCase.swift */; };
@@ -55,6 +57,8 @@
 		080DBE972BF9080A0094C7C9 /* CountryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataModel.swift; sourceTree = "<group>"; };
 		080DBE992BF908C60094C7C9 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
 		081747932BFB9E4000B82CD2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		081747952BFBA0BE00B82CD2 /* AppActivityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityLoader.swift; sourceTree = "<group>"; };
+		081747972BFBA0EF00B82CD2 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		08C434EE2BF9FF5200AAAB38 /* CountryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataRepository.swift; sourceTree = "<group>"; };
 		08C434F02BFA000600AAAB38 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		08C434F22BFA00A400AAAB38 /* CountryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListUseCase.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				08C434F52BFA07D300AAAB38 /* AppConstants.swift */,
+				081747952BFBA0BE00B82CD2 /* AppActivityLoader.swift */,
 			);
 			path = AppUtility;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				08C434F82BFA109200AAAB38 /* StringExtension.swift */,
+				081747972BFBA0EF00B82CD2 /* ViewControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -387,11 +393,13 @@
 				08C434FE2BFA1A4000AAAB38 /* CountryListTableViewCell.swift in Sources */,
 				08C434F62BFA07D300AAAB38 /* AppConstants.swift in Sources */,
 				08FEF7112BF902170012AB12 /* CountryListViewController.swift in Sources */,
+				081747982BFBA0EF00B82CD2 /* ViewControllerExtension.swift in Sources */,
 				08C4350B2BFA6B2400AAAB38 /* BluetoothViewModel.swift in Sources */,
 				08C435052BFA6A8300AAAB38 /* BluetoothDeviceRepository.swift in Sources */,
 				08C434F32BFA00A400AAAB38 /* CountryListUseCase.swift in Sources */,
 				08FEF7142BF903C20012AB12 /* BluetoothViewController.swift in Sources */,
 				08C434EF2BF9FF5200AAAB38 /* CountryDataRepository.swift in Sources */,
+				081747962BFBA0BE00B82CD2 /* AppActivityLoader.swift in Sources */,
 				08C434F92BFA109200AAAB38 /* StringExtension.swift in Sources */,
 				080DBE982BF9080A0094C7C9 /* CountryDataModel.swift in Sources */,
 				08FEF6DA2BF8FF400012AB12 /* AppDelegate.swift in Sources */,

@@ -27,6 +27,7 @@ class BluetoothViewController: UIViewController {
     
     //MARK: IBAction
     @IBAction func scanButtonTapped(_ sender: Any) {
+        showLoader()
         bluetoothVM?.startScan()
     }
     
@@ -36,6 +37,9 @@ class BluetoothViewController: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.devicesTableView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                    self?.hideLoader()
+                }
             }
             .store(in: &cancellables)
     }
@@ -58,7 +62,6 @@ extension BluetoothViewController: UITableViewDataSource {
 
 //MARK: TableView Delegate
 extension BluetoothViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120.0
     }
