@@ -17,6 +17,9 @@ class AppConstants {
         static let twentyMillion = "< 20M"
         static let clear = "Clear Filter"
         static let cancel = "Cancel"
+        static let noInternetTitle = "Network Error"
+        static let noInternetMessage = "No internet connection"
+        static let ok = "OK"
     }
     
     class APIConstants {

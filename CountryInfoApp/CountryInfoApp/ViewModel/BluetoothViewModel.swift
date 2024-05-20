@@ -10,15 +10,16 @@ import Foundation
 import Combine
 
 class BluetoothViewModel: ObservableObject {
+    
     //MARK: Properties
     @Published var devices: [BluetoothDeviceModel] = []
     private var useCase: BluetoothUseCase
     private var cancellables: Set<AnyCancellable> = []
-
+    
     init(useCase: BluetoothUseCase) {
         self.useCase = useCase
     }
-
+    
     //MARK: Methods
     func startScan() {
         useCase.startScan()
@@ -29,11 +30,11 @@ class BluetoothViewModel: ObservableObject {
             }
             .store(in: &cancellables)
     }
-
+    
     func stopScan() {
         useCase.stopScan()
     }
-
+    
     private func updateDevices() {
         devices = useCase.getDevices()
     }

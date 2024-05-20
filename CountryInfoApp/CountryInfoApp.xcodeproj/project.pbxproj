@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		080DBE982BF9080A0094C7C9 /* CountryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080DBE972BF9080A0094C7C9 /* CountryDataModel.swift */; };
 		080DBE9A2BF908C60094C7C9 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080DBE992BF908C60094C7C9 /* CountryListViewModel.swift */; };
+		081747942BFB9E4000B82CD2 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081747932BFB9E4000B82CD2 /* NetworkReachabilityManager.swift */; };
 		08C434EF2BF9FF5200AAAB38 /* CountryDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434EE2BF9FF5200AAAB38 /* CountryDataRepository.swift */; };
 		08C434F12BFA000600AAAB38 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434F02BFA000600AAAB38 /* NetworkManager.swift */; };
 		08C434F32BFA00A400AAAB38 /* CountryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C434F22BFA00A400AAAB38 /* CountryListUseCase.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		080DBE972BF9080A0094C7C9 /* CountryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataModel.swift; sourceTree = "<group>"; };
 		080DBE992BF908C60094C7C9 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
+		081747932BFB9E4000B82CD2 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		08C434EE2BF9FF5200AAAB38 /* CountryDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDataRepository.swift; sourceTree = "<group>"; };
 		08C434F02BFA000600AAAB38 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		08C434F22BFA00A400AAAB38 /* CountryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListUseCase.swift; sourceTree = "<group>"; };
@@ -106,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081747902BFB9DDE00B82CD2 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				08C434F02BFA000600AAAB38 /* NetworkManager.swift */,
+				081747932BFB9E4000B82CD2 /* NetworkReachabilityManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		08C434EC2BF9FEC000AAAB38 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				08C434EE2BF9FF5200AAAB38 /* CountryDataRepository.swift */,
-				08C434F02BFA000600AAAB38 /* NetworkManager.swift */,
 				08C435042BFA6A8300AAAB38 /* BluetoothDeviceRepository.swift */,
 			);
 			path = Repository;
@@ -171,6 +181,7 @@
 				08FEF70C2BF901D10012AB12 /* ViewModel */,
 				08C434EC2BF9FEC000AAAB38 /* UseCase */,
 				08C434ED2BF9FEC800AAAB38 /* Repository */,
+				081747902BFB9DDE00B82CD2 /* Manager */,
 				08FEF6D92BF8FF400012AB12 /* AppDelegate.swift */,
 				08FEF6DB2BF8FF400012AB12 /* SceneDelegate.swift */,
 				08FEF6E52BF8FF410012AB12 /* Assets.xcassets */,
@@ -384,6 +395,7 @@
 				08C434F92BFA109200AAAB38 /* StringExtension.swift in Sources */,
 				080DBE982BF9080A0094C7C9 /* CountryDataModel.swift in Sources */,
 				08FEF6DA2BF8FF400012AB12 /* AppDelegate.swift in Sources */,
+				081747942BFB9E4000B82CD2 /* NetworkReachabilityManager.swift in Sources */,
 				08FEF6DC2BF8FF400012AB12 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

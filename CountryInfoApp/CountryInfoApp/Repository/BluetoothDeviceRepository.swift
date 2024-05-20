@@ -16,9 +16,9 @@ protocol BluetoothRepository {
 
 
 class BluetoothDeviceRepository: NSObject, BluetoothRepository, CBCentralManagerDelegate {
+    //MARK: Properties
     private var centralManager: CBCentralManager?
     private var discoveredPeripherals: [UUID: (peripheral: CBPeripheral, name: String)] = [:]
-    
     var devices: [BluetoothDeviceModel] {
         return discoveredPeripherals.values.map { BluetoothDeviceModel(name: $0.name, identifier: $0.peripheral.identifier) }
     }
@@ -27,7 +27,8 @@ class BluetoothDeviceRepository: NSObject, BluetoothRepository, CBCentralManager
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil)
     }
-
+    
+    //MARK: Methods
     func startScanning() {
         discoveredPeripherals.removeAll()
         centralManager?.scanForPeripherals(withServices: nil, options: nil)

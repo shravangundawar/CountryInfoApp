@@ -14,9 +14,11 @@ protocol APIClient {
 }
 
 class NetworkManager: APIClient {
+    //MARK: Properties
     private let baseURL = URL(string: AppConstants.APIConstants.baseUrl)!
     private let session = URLSession.shared
     
+    //MARK: Methods
     func request<T: Decodable>(endpoint: String, completion: @escaping (Result<T, Error>) -> Void) {
         let url = baseURL.appendingPathComponent(endpoint)
         let task = session.dataTask(with: url) { data, response, error in

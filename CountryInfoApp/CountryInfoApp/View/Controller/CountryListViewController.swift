@@ -8,7 +8,7 @@
 import UIKit
 
 class CountryListViewController: UIViewController {
-
+    
     //MARK: IBOutlet
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var countrySearchBar: UISearchBar!
@@ -17,14 +17,13 @@ class CountryListViewController: UIViewController {
     //MARK: Property
     var countryListVM: CountryListViewModel?
     let reuseIdentifier = "CountryListTableViewCell"
-    
     var filteredCountries: [CountryDataModel] = []
     var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initialDependancyInjectionSetup()
+        networkAlertHandling()
         getCountryListData()
         dateTimeSetup()
         tableViewSetup()
@@ -34,7 +33,7 @@ class CountryListViewController: UIViewController {
     @IBAction func filterButtonTapped(_ sender: Any) {
         showFilterSheet()
     }
-        
+    
     //MARK: Methods
     func initialDependancyInjectionSetup() {
         let networkManager = NetworkManager()
@@ -51,6 +50,16 @@ class CountryListViewController: UIViewController {
         countryListTableView.register(UINib(nibName: reuseIdentifier, bundle: Bundle.main), forCellReuseIdentifier: reuseIdentifier)
     }
     
+    func networkAlertHandling() {
+        countryListVM?.networkError = { [weak self] errorMessage in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: AppConstants.UIConstants.noInternetTitle, message: errorMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: AppConstants.UIConstants.ok, style: .default))
+                self?.present(alert, animated: true)
+            }
+        }
+    }
+    
     func getCountryListData() {
         countryListVM?.fetchCountryList { [weak self] result in
             DispatchQueue.main.async {
@@ -62,7 +71,7 @@ class CountryListViewController: UIViewController {
                 case .failure(let error):
                     debugPrint("Error fetching country data: \(error)")
                 }
-//                self?.hideLoader()
+                //                self?.hideLoader()
             }
         }
     }
@@ -93,7 +102,7 @@ class CountryListViewController: UIViewController {
         let cancel = UIAlertAction(title: AppConstants.UIConstants.cancel, style: .cancel) { action in
             print("Action Cancel")
         }
-
+        
         //Add actions
         actionSheet.addAction(oneMillion)
         actionSheet.addAction(fiveMillion)
@@ -101,7 +110,7 @@ class CountryListViewController: UIViewController {
         actionSheet.addAction(twentyMillion)
         actionSheet.addAction(clear)
         actionSheet.addAction(cancel)
-
+        
         present(actionSheet, animated: true)
     }
     
@@ -141,7 +150,6 @@ extension CountryListViewController: UITableViewDataSource {
         
         guard let viewModel = countryListVM else { return UITableViewCell() }
         cell.setImage(with: countryInfo, viewModel: viewModel)
-
         
         return cell
     }
@@ -169,6 +177,6 @@ extension CountryListViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-           searchBar.resignFirstResponder()
-       }
+        searchBar.resignFirstResponder()
+    }
 }

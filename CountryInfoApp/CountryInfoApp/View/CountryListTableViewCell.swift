@@ -17,6 +17,7 @@ class CountryListTableViewCell: UITableViewCell {
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var populationLabel: UILabel!
     
+    //MARK: Properties
     private var flagURL: URL?
     
     override func awakeFromNib() {
@@ -31,6 +32,7 @@ class CountryListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    //MARK: Methods
     func setupUI() {
         cellBackView.layer.cornerRadius = 20
         cellBackView.layer.borderWidth = 1.0

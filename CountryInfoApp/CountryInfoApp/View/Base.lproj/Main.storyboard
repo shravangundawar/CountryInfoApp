@@ -114,15 +114,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-16-Hva">
-                                <rect key="frame" x="156.66666666666666" y="59" width="80" height="35"/>
+                                <rect key="frame" x="94.333333333333329" y="59" width="204.66666666666669" height="35"/>
                                 <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="KgC-iQ-xxk"/>
                                     <constraint firstAttribute="height" constant="35" id="s9Y-1n-knR"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Scan"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Scan Bluetooth Devices"/>
                                 <connections>
                                     <action selector="scanButtonTapped:" destination="6A5-v8-RUO" eventType="touchUpInside" id="lQm-ij-fPy"/>
                                 </connections>

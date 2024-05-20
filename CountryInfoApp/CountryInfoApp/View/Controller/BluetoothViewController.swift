@@ -24,6 +24,7 @@ class BluetoothViewController: UIViewController {
         bluetoothVM = BluetoothViewModel(useCase: bluetoothUseCase)
         bindViewModel()
     }
+    
     //MARK: IBAction
     @IBAction func scanButtonTapped(_ sender: Any) {
         bluetoothVM?.startScan()

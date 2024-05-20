@@ -14,12 +14,14 @@ protocol CountryRepository {
 }
 
 class CountryDataRepository: CountryRepository {
+    //MARK: Properties
     private let apiClient: APIClient
     
     init(apiClient: APIClient) {
         self.apiClient = apiClient
     }
     
+    //MARK: Methods
     func fetchCountryData(completion: @escaping (Result<[CountryDataModel], Error>) -> Void) {
         apiClient.request(endpoint: AppConstants.APIConstants.countryListEndpoint) { (result: Result<[CountryDataModel], Error>) in
             switch result {

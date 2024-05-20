@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-// Define the enum for filter options
+// The enum for filter options
 enum PopulationFilter {
     case lessThan1Million
     case lessThan5Million
@@ -34,14 +34,18 @@ enum PopulationFilter {
 
 
 class CountryListViewModel  {
+    
+    //MARK: Properties
     var countryListArray: [CountryDataModel] = []
     var errorMessage: String? = nil
     private let countryListUseCase: CountryListUseCase
+    var networkError: ((String) -> Void)?
     
     init(countryListUseCase: CountryListUseCase) {
         self.countryListUseCase = countryListUseCase
     }
     
+    //MARK: Methods
     func fetchCountryList(completion: @escaping (Result<[CountryDataModel], Error>) -> Void) {
         countryListUseCase.execute { [weak self] result in
             DispatchQueue.main.async {
@@ -56,6 +60,10 @@ class CountryListViewModel  {
                     completion(.failure(error))
                 }
             }
+        }
+        
+        if !NetworkReachability.shared.isNetworkAvailable {
+            networkError?(AppConstants.UIConstants.noInternetMessage)
         }
     }
     
@@ -76,12 +84,12 @@ class CountryListViewModel  {
     
     func loadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
         countryListUseCase.executeFetchImage(with: url) { result in
-             switch result {
-             case .success(let image):
-                 completion(image)
-             case .failure:
-                 completion(nil)
-             }
-         }
-     }
+            switch result {
+            case .success(let image):
+                completion(image)
+            case .failure:
+                completion(nil)
+            }
+        }
+    }
 }
